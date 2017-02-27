@@ -14,7 +14,7 @@ module.exports = function(){
         }
         return true;
       }}]).then(function(answer){
-        console.log("\n\n\x1b[1mGenerated Tree:\x1b[0m\n\n" + generate(answer.editIt));
+        console.log("\n\n\x1b[1mGenerated Tree:\x1b[0m\n\n" + generate(answer.editIt.replace(/^\s+/, "")));
         process.exit(0);
       });
     } else {
@@ -25,14 +25,14 @@ module.exports = function(){
         if (thetext.length < 1) return "File must not be empty!";
         if (/^\s+$/.test(thetext)) return "File must not be empty!";
         try {
-          generate(fs.readFileSync(text));
+          generate(fs.readFileSync(text).replace(/^\s+/, ""));
         } catch (err) {
           return err.message;
         }
         return true;
       }}]).then(function(answer){
         var thetext = fs.readFileSync(answer.path);
-        console.log("\n\n\x1b[1mGenerated Tree:\x1b[0m\n\n" + generate(thetext));
+        console.log("\n\n\x1b[1mGenerated Tree:\x1b[0m\n\n" + generate(thetext.replace(/^\s+/, "")));
         process.exit(0);
       });
     }
