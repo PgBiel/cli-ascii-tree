@@ -24,6 +24,6 @@
   "author": "PgBiel",
   "license": "ISC",
   "bin": {
-    "ascii-tree-cli": "./bin/ascii-tree-cli"
+    "ascii-tree": "./bin/ascii-tree-cli"
   }
 }

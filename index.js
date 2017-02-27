@@ -1,4 +1,4 @@
-module.exports = (function(){
+module.exports = function(){
   var inquirer     = require("inquirer");
   var { generate } = require("ascii-tree");
   var fs           = require("fs");
@@ -36,4 +36,4 @@ module.exports = (function(){
       });
     }
   });
-})();
+};
