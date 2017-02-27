@@ -4,8 +4,9 @@ module.exports = function(){
   var fs           = require("fs");
   inquirer.prompt([{type: "list", name: "fileYesNo", message: "Will you use an editor to write down the ascii tree, or do you have file with it?", choices: ["Use editor", "Use already-existing file"]}]).then(function(answers){
     if (answers.fileYesNo == "Use editor") {
-      inquirer.prompt([{type: "editor", name: "editIt", message: "Please write the tree (Example: #RootNode\\n##Sibling\\n###Sibling of Sibling\\n##Sibling of root node", validate: function(text){
+      inquirer.prompt([{type: "editor", name: "editIt", message: "Please write the tree (Example: #RootNode\\n##Sibling\\n###Sibling of Sibling)", validate: function(text){
         if (text.length < 1) return "Don't leave it empty!";
+        text = text.replace(/^\s+/, "");
         try {
           generate(text);
         } catch (err) {
