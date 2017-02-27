@@ -11,9 +11,9 @@ module.exports = function(){
       inquirer.prompt([{type: "editor", name: "editIt", message: "Please write the tree (Example: #RootNode\\n##Sibling\\n###Sibling of Sibling)", validate: function(text){
         if (text.length < 1) return "Don't leave it empty!";
         if (/^\s+$/.test(text)) return "Don't leave it empty!";
-        if (/^[^#]+#/.test(text)) text = text.replace(/^[^#]+#+$/, function(selection){
-          var bad = selection.match(/^([^#]+)#/)[1];
-          return selection.replace(new RegExp(escaperegex(bad) + "$"), "");
+        if (/^[^#]+#/.test(text)) text = text.replace(/^[^#]+#/, function(selection){
+          var bad = selection.match(/^([^#]+)#$/)[1];
+          return selection.replace(new RegExp("^" + escaperegex(bad)), "");
         });
         if (!(/#/.test(text))) return "Needs at least 1 node.";
         if (/#.+\n[^#]+$/.test(text)) text = text.replace(/#.+\n[^#]+$/, function(selection){
@@ -41,9 +41,9 @@ module.exports = function(){
         if (thetext.length < 1) return "File must not be empty!";
         if (/^\s+$/.test(thetext)) return "File must not be empty!";
         if (!(/#/.test(thetext))) return "Needs at least 1 node.";
-        if (/^[^#]+#/.test(thetext)) thetext = thetext.replace(/^[^#]+#+$/, function(selection){
-          var bad = selection.match(/^([^#]+)#/)[1];
-          return selection.replace(new RegExp(escaperegex(bad) + "$"), "");
+        if (/^[^#]+#/.test(thetext)) thetext = thetext.replace(/^[^#]+#/, function(selection){
+          var bad = selection.match(/^([^#]+)#$/)[1];
+          return selection.replace(new RegExp("^" + escaperegex(bad)), "");
         });
         if (/#.+\n[^#]+$/.test(thetext)) thetext = thetext.replace(/#.+\n[^#]+$/, function(selection){
           var bad = selection.match(/^#.+(\n[^#]+)$/)[1];
