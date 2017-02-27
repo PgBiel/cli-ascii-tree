@@ -3,6 +3,7 @@ CLI interface for ascii-tree
 
 ## Install
 `npm install cli-ascii-tree -g`
+
 **Do not forget the `-g` option!**
 
 
