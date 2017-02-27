@@ -1,0 +1,29 @@
+{
+  "name": "ascii-tree-cli",
+  "version": "0.0.1",
+  "description": "Generate ascii-tree on the command line.",
+  "main": "index.js",
+  "dependencies": {
+    "ascii-tree": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"This is a test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "test"
+  },
+  "keywords": [
+    "ascii",
+    "tree",
+    "ascii-tree",
+    "directory",
+    "cli"
+  ],
+  "author": "PgBiel",
+  "license": "ISC",
+  "bin": {
+    "ascii-tree-cli": "./bin/ascii-tree-cli"
+  }
+}
