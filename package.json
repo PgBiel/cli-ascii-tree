@@ -4,7 +4,8 @@
   "description": "Generate ascii-tree on the command line.",
   "main": "index.js",
   "dependencies": {
-    "ascii-tree": "^0.3.0"
+    "ascii-tree": "^0.3.0",
+    "inquirer": "^3.0.6"
   },
   "devDependencies": {},
   "scripts": {
